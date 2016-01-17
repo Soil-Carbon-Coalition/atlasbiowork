@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sites</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page" class="ui-page">
+      <div data-role="header">
+        {{>home}}
+        <h1>Sites</h1>
+      </div>
+      <div role="main" class="ui-content">
+        <ul data-role="listview" data-filter="true" data-inset="true">
+          {{#list}}
+          <li>
+            <a href="{{rt}}/sites/{{id}}">
+              <h3>{{label}}</h3>
+              <p></p>
+            </a>
+          </li>
+          {{/list}}
+          {{^list}}
+          <li>No Sites Found</li>
+          {{/list}}
+          <li data-icon="plus" data-theme="b">
+            <a href="{{rt}}/sites/new">Add Site</a>
+          </li>
+        </ul>
+        <div class="map list-map" id="site-map"></div>
+      </div>
+    </div>
+  </body>
+</html>

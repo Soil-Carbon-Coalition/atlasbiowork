@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{parent_label}} Observations</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page" class="ui-page" data-wq-sync-refresh="true">
+      <div data-role="header">
+        {{>home}}
+        <h1>{{parent_label}} Observations</h1>
+      </div>
+      <div role="main" class="ui-content">
+        {{^parent_label}}
+        {{#unsynced}}
+        <ul data-role="listview" data-inset="true">
+          <li data-role="list-divider">Outbox</li>
+          {{>outbox}}
+        </ul>
+        {{/unsynced}}
+        {{/parent_label}}
+        <ul data-role="listview" data-filter="true" data-inset="true">
+          <li data-role="list-divider">
+            {{^parent_label}}{{#unsynced}}Synced{{/unsynced}}{{/parent_label}}
+            Observations
+          </li>
+          {{#list}}
+          <li>
+            <a href="{{rt}}/observations/{{id}}">
+              {{#files}}{{^@index}}
+              <img src="{{file}}" alt="{{label}}">
+              {{/@index}}{{/files}}
+              <h3>{{label}}</h3>
+            </a>
+          </li>
+          {{/list}}
+          {{^list}}
+          <li>No Observations Found</li>
+          {{/list}}
+          {{#parent_is_observationtype}}
+          <li data-icon="plus" data-theme="b">
+            <a href="{{rt}}/observations/new?type_id={{parent_id}}">
+              Add Observation
+            </a>
+          </li>
+          {{/parent_is_observationtype}}
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
+

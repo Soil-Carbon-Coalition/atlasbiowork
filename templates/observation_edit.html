@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} Observation</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page" class="ui-page">
+      <div data-role="header">
+        {{>home}}
+        <h1>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} Observation</h1>
+      </div>
+      <div role="main" class="ui-content">
+        {{^type_id}}
+        <p>Select a type
+        {{/type_id}}
+        {{#type_id}}
+        <form action="{{svc}}/observations/{{id}}" method="post" data-ajax="false"
+            data-wq-json="true"
+            {{#outbox_id}}
+              data-wq-outbox-id="{{outbox_id}}"
+              data-wq-outbox-preserve="files"
+            {{/outbox_id}}>
+          {{>csrf}}
+          {{#id}}
+          <input type=hidden name="_method" value="PUT">
+          {{/id}}
+          <ul data-role="listview">
+            <input type="hidden" name="type_id" value="{{type_id}}">
+            <li class="ui-field-contain">
+              <label for="site_id">Site</label>
+              <select id="site_id" name="site_id">
+                <option value="">Select a site...</option>
+                {{#site_list}}
+                  {{>option}}
+                {{/site_list}}
+              </select>
+              <p class="error observation-site_id-errors"></p>
+            </li>
+            {{^files}}
+            <li class="ui-field-contain">
+              <img src="{{rt}}/images/empty.png"
+                   id="file-preview">
+              <label for="files">Photos</label>
+              <input type="file" multiple name="files" id="files"
+                     data-wq-preview="file-preview">
+              <p class="error observation-files-errors"></p>
+            </li>
+            {{/files}}
+            {{#files}}
+            <li class="ui-field-contain">
+              <img src="{{image_url}}">
+              <label>Photo</label>
+              <input type="text" id="image" disabled
+                  value="{{name}} ({{type}}, {{body.size}} bytes)">
+              <p class="error observation-files-errors"></p>
+            </li>
+            {{/files}}
+            {{#type}}{{{html}}}{{/type}}
+            <li>
+              <div class="ui-grid-a">
+                <div class="ui-block-a">
+                  <a href="{{rt}}/observations/{{id}}" data-role="button" data-icon="back" data-direction="reverse">
+                    Back
+                  </a>
+                </div>
+                <div class="ui-block-b">
+                  <button type="submit" data-icon="check" data-theme="b">
+                    Submit
+                  </button>
+                </div>
+              </div>
+              <p class="error observation-errors"></p>
+            </li>
+          </ul>
+        </form>
+        {{/type_id}}
+      </div>
+    </div>
+  </body>
+</html>
+

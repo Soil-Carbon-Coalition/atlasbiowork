@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Observation Types</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page" class="ui-page">
+      <div data-role="header">
+        {{>home}}
+        <h1>Observation Types</h1>
+      </div>
+      <div role="main" class="ui-content">
+        <ul data-role="listview" data-filter="true" data-inset="true">
+          {{#list}}
+          <li>
+            <a href="{{rt}}/observations/new?type_id={{id}}">
+              <h3>{{label}}</h3>
+              <p>{{description}}</p>
+            </a>
+            <a href="{{rt}}/observationtypes/{{id}}" data-icon="info">
+              About
+            </a>
+          </li>
+          {{/list}}
+          {{^list}}
+          <li>No Observation Types Found.</li>
+          {{/list}}
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

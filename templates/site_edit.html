@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} Site</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page" class="ui-page">
+      <div data-role="header">
+        {{>home}}
+        <h1>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} Site</h1>
+      </div>
+      <div role="main" class="ui-content">
+        <form action="{{svc}}/sites/{{id}}" method="post" data-ajax="false"
+            data-wq-json="true" data-wq-background-sync="false">
+          {{>csrf}}
+          {{#id}}
+          <input type=hidden name="_method" value="PUT">
+          {{/id}}
+          <ul data-role="listview">
+            <li class="ui-field-contain">
+              <label for="name">Name</label>
+              <input name="name" id="name" value="{{name}}">
+              <p class="error site-name-errors"></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for="accuracy">GPS Accuracy</label>
+              <input name="accuracy" id="accuracy" value="{{accuracy}}">
+              <p class="error site-accuracy-errors"></p>
+            </li>
+            <li>
+              <div class="map edit-map" id="site-{{id}}{{^id}}new{{/id}}-edit-map"></div>
+              <input type="hidden" name="geometry">
+              <p class="error site-locations-errors"></p>
+            </li>
+            <li>
+              <div class="ui-grid-a">
+                <div class="ui-block-a">
+                  <a href="{{rt}}/sites/{{id}}" data-role="button" data-icon="back" data-direction="reverse">
+                    Back
+                  </a>
+                </div>
+                <div class="ui-block-b">
+                  <button type="submit" data-icon="check" data-theme="b">
+                    Submit
+                  </button>
+                </div>
+              </div>
+              <p class="error site-errors"></p>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} Observation Type</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page" class="ui-page">
+      <div data-role="header">
+        {{>home}}
+        <h1>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} Observation Type</h1>
+      </div>
+      <div role="main" class="ui-content">
+        <form action="{{svc}}/observationtypes/{{id}}" method="post" data-ajax="false"
+            data-wq-json="true" data-wq-background-sync="false">
+          {{>csrf}}
+          {{#id}}
+          <input type=hidden name="_method" value="PUT">
+          {{/id}}
+          <ul data-role="listview">
+            <li class="ui-field-contain">
+              <label for="name">Name</label>
+              <input name="name" id="name" value="{{name}}">
+              <p class="error observationtype-name-errors"></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for="icon">Icon</label>
+              <input name="icon" id="icon" type="file" value="{{icon}}">
+              <p class="error observationtype-icon-errors"></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for="description">Description</label>
+              <textarea name="description" id="description">{{description}}</textarea>
+              <p class="error observationtype-description-errors"></p>
+            </li>
+            <li>
+              <label for="html">HTML Form</label>
+              <code>
+              &lt;form&gt;<br>
+              &lt;ul data-role='listview'&gt;
+              </code>
+              <textarea name="html" id="html">{{html}}</textarea>
+              <code>
+              &lt;/ul&gt;<br>
+              &lt;/form&gt;
+              </code>
+              <p class="error observationtype-html-errors"></p>
+            </li>
+            <li>
+              <div class="ui-grid-a">
+                <div class="ui-block-a">
+                  <a href="{{rt}}/observationtypes/{{id}}" data-role="button" data-icon="back" data-direction="reverse">
+                    Back
+                  </a>
+                </div>
+                <div class="ui-block-b">
+                  <button type="submit" data-icon="check" data-theme="b">
+                    Submit
+                  </button>
+                </div>
+              </div>
+              <p class="error observationtype-errors"></p>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+

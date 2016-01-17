@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html manifest="atlasbiowork.appcache">
+  <head>
+    <title>atlasbiowork</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="manifest.json">
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page" class="ui-page">
+      <div data-role="header">
+        <h1>atlasbiowork</h1>
+      </div>
+      <div role="main" class="ui-content">
+        <p>Welcome to <b>atlasbiowork</b>.</p>
+        <ul data-role="listview" data-inset="true">
+          <li data-icon="camera">
+            <a href="{{rt}}/observationtypes/">Share Observation</a>
+          </li>
+          <li data-icon="edit">
+            <a href="{{rt}}/observationtypes/new">Create Observation Type</a>
+          </li>
+          <li data-icon="location">
+            <a href="{{rt}}/sites">Manage Sites</a>
+          </li>
+          <li data-icon="bullets">
+            <a href="{{rt}}/observations">View Observations</a>
+          </li>
+          <li data-icon="lock">
+            <a href="{{rt}}/login">Log In</a>
+          </li>
+        </ul>
+      </div>
+      <p class="footer">
+        atlasbiowork v{{version}}
+        &bull;
+        Powered by <a href="https://wq.io/">wq</a>
+      </p>
+    </div>
+  </body>
+</html>

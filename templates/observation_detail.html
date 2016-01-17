@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{label}}</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page" class="ui-page">
+      <div data-role="header">
+        {{>home}}
+        <h1>{{label}}</h1>
+        <a href="{{rt}}/observations/{{id}}/edit" data-icon="edit" data-transition="flip">
+          Edit
+        </a>
+      </div>
+      <div role="main" class="ui-content">
+        <h1>{{label}}</h1>
+        <table>
+          <tr><th>Type</th><td><a href="{{rt}}/observationtypes/{{type_id}}">{{type_label}}</a></td></tr>
+          <tr><th>Site</th><td><a href="{{rt}}/sites/{{site_id}}">{{site_label}}</a></td></tr>
+          <tr><th>Date</th><td>{{date}}</td></tr>
+        </table>
+        {{#files}}
+        <img src="{{file}}" alt="{{label}}" style="max-width:100%">
+        {{/files}}
+      </div>
+    </div>
+  </body>
+</html>
+
