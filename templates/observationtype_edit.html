@@ -18,6 +18,7 @@
           <input type=hidden name="_method" value="PUT">
           {{/id}}
           <ul data-role="listview">
+            <li data-role="list-divider">General Information</li>
             <li class="ui-field-contain">
               <label for="name">Name</label>
               <input name="name" id="name" value="{{name}}">
@@ -33,18 +34,37 @@
               <textarea name="description" id="description">{{description}}</textarea>
               <p class="error observationtype-description-errors"></p>
             </li>
+            <li data-role="list-divider">Fields and Layout</li>
+            <li class="ui-field-contain">
+              <label for="xlsform">XLSForm</label>
+              <input name="xlsform" id="xlsform" type="file" value="{{xlsform}}">
+              <p class="error observationtype-xlsform-errors"></p>
+            </li>
             <li>
-              <label for="html">HTML Form</label>
+              <label for="edit_html">HTML Form</label>
+              <p>(Leave blank to generate from XLSForm)</p>
               <code>
               &lt;form&gt;<br>
               &lt;ul data-role='listview'&gt;
               </code>
-              <textarea name="html" id="html">{{html}}</textarea>
+              <textarea name="edit_html" id="edit_html">{{edit_html}}</textarea>
               <code>
               &lt;/ul&gt;<br>
               &lt;/form&gt;
               </code>
-              <p class="error observationtype-html-errors"></p>
+              <p class="error observationtype-edit_html-errors"></p>
+            </li>
+            <li>
+              <label for="detail_html">HTML Detail View</label>
+              <p>(Leave blank to generate from XLSForm)</p>
+              <code>
+              &lt;table&gt;
+              </code>
+              <textarea name="detail_html" id="detail_html">{{detail_html}}</textarea>
+              <code>
+              &lt;/table&gt;
+              </code>
+              <p class="error observationtype-detail_html-errors"></p>
             </li>
             <li>
               <div class="ui-grid-a">

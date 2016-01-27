@@ -12,3 +12,6 @@ swapper==0.3.0
 https://github.com/wq/wq.app/archive/master.zip
 wq.core==0.8.1
 https://github.com/wq/wq.db/archive/master.zip
+wq.io==0.8.0
+https://github.com/sheppard/pyxform/archive/py3.zip
+https://github.com/wq/xlsform-converter/archive/master.zip

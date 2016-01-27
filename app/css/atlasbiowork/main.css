@@ -23,3 +23,10 @@
 .map.edit-map {
     height: 400px;
 }
+.ui-listview > li p.hint {
+    clear: both;
+    margin-top: 0.5em;
+    color: #666;
+    font-size: 0.8em;
+    white-space: normal;
+}

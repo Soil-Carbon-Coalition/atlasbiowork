@@ -12,9 +12,8 @@
       </div>
       <div role="main" class="ui-content">
         {{^type_id}}
-        <p>Select a type
+        <p>Select a type!</p>
         {{/type_id}}
-        {{#type_id}}
         <form action="{{svc}}/observations/{{id}}" method="post" data-ajax="false"
             data-wq-json="true"
             {{#outbox_id}}
@@ -29,7 +28,7 @@
             <input type="hidden" name="type_id" value="{{type_id}}">
             <li class="ui-field-contain">
               <label for="site_id">Site</label>
-              <select id="site_id" name="site_id">
+              <select id="site_id" name="site_id" required>
                 <option value="">Select a site...</option>
                 {{#site_list}}
                   {{>option}}
@@ -56,7 +55,7 @@
               <p class="error observation-files-errors"></p>
             </li>
             {{/files}}
-            {{#type}}{{{html}}}{{/type}}
+            {{#obs_html}}edit{{/obs_html}}
             <li>
               <div class="ui-grid-a">
                 <div class="ui-block-a">
@@ -74,7 +73,6 @@
             </li>
           </ul>
         </form>
-        {{/type_id}}
       </div>
     </div>
   </body>

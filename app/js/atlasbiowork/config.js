@@ -8,7 +8,21 @@ config.router = {
 config.template = {
     'templates': templates,
     'defaults': {
-        'version': version
+        'version': version,
+        'obs_html': function() {
+            return function(text, render) {
+                return render(this.type[text + '_html']);
+            }
+        },
+        'selected': function() {
+            return function(text, render) {
+                var parts = text.split(' ');
+                if (this[parts[0]] === parts[1]) {
+                    return ' checked';
+                }
+                return '';
+            }
+        }
     }
 };
 

@@ -1,0 +1,13 @@
+{{=[[ ]]=}}
+<li class="ui-field-contain">
+  <fieldset data-role="controlgroup" data-type="horizontal" data-xform-type='[[type]]'>
+    <legend>[[label]]</legend>
+    [[#choices]]
+    <label for='{{type_id}}-[[field_name]]-[[name]]'>[[label]]</label>
+    <input id='{{type_id}}-[[field_name]]-[[name]]' type='radio' name='[[field_name]]' value="[[name]]"{{#selected}}[[field_name]] [[name]]{{/selected}}>
+    [[/choices]]
+  </fieldset>
+  [[#hint]]
+  <p class="hint">[[hint]]</p>
+  [[/hint]]
+</li>
