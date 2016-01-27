@@ -11,7 +11,7 @@ Tested on a Digital Ocean droplet running Ubuntu 15.10.
     sudo apt-get update
     sudo apt-get install apache2 libapache2-mod-wsgi-py3 postgresql-9.4-postgis-2.1 python3-pip python3-psycopg2
     sudo apt-get install nodejs-legacy
-    sudo apt-get install git vim python3-pil
+    sudo apt-get install git vim python3-pil libxslt-dev
     ```
 
 3. Install code
