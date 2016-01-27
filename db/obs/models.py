@@ -28,11 +28,16 @@ class ObservationType(models.Model):
 
     def save(self, *args, **kwargs):
         if self.xlsform:
-            self.form_json = xlsconv.parse_xls(self.xlsform)
-            if not self.edit_html:
-                self.edit_html = self.generate_html('edit')
-            if not self.detail_html:
-                self.detail_html = self.generate_html('detail')
+            try:
+                self.form_json = xlsconv.parse_xls(self.xlsform)
+            except Exception as e:
+                self.edit_html = "Error parsing form: %s" % e
+                self.detail_html = "Error parsing form: %s" % e
+            else:
+                if not self.edit_html:
+                    self.edit_html = self.generate_html('edit')
+                if not self.detail_html:
+                    self.detail_html = self.generate_html('detail')
         super().save(*args, **kwargs)
 
     def generate_html(self, template):
