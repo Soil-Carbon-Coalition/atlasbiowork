@@ -42,6 +42,13 @@ config.transitions = {
     'save': "flip"
 };
 
+config.pages.site.map.list.onshow = function(map) {
+    map.locate({
+        'setView': true,
+        'maxZoom': 16,
+    });
+}
+
 return config;
 
 });

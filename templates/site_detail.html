@@ -21,7 +21,12 @@
               <tr><th>Name</th><td>{{name}}</td></tr>
             </table>
             <ul data-role="listview" data-inset="true">
-              <li><a href="{{rt}}/sites/{{id}}/observations">Observations</a></li>
+              <li data-icon="bullets">
+                <a href="{{rt}}/sites/{{id}}/observations">Observations</a>
+              </li>
+              <li data-icon="edit">
+                <a href="{{rt}}/observationtypes/?site_id={{id}}">Add Observation</a>
+              </li>
             </ul>
           </div>
           <div class="ui-block-b">

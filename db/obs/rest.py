@@ -5,7 +5,12 @@ from .serializers import ObservationTypeSerializer, ObservationSerializer
 
 rest.router.register_model(
     Site,
-    map=True,
+    map={
+        'list': {'autoLayers': True},
+        'edit': {'autoLayers': True},
+        'detail': {'autoLayers': True},
+    },
+    partial=True,
 )
 
 rest.router.register_model(
@@ -19,3 +24,8 @@ rest.router.register_model(
 )
 
 rest.router.add_page('index', {'url': ''})
+rest.router.add_page('locate', {
+    'url': 'locate',
+    'map': {},
+    'locate': True
+})

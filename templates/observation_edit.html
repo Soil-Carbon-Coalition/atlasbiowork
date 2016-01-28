@@ -26,6 +26,14 @@
           {{/id}}
           <ul data-role="listview">
             <input type="hidden" name="type_id" value="{{type_id}}">
+            {{#site_data}}
+            <li class="ui-field-contain">
+              <label for="site_data_label">Site</label>
+              <input id="site_data_label" value="{{site_data_label}}" disabled>
+              <input type="hidden" name="site_data" value="{{site_data}}">
+            </li>
+            {{/site_data}}
+            {{^site_data}}
             <li class="ui-field-contain">
               <label for="site_id">Site</label>
               <select id="site_id" name="site_id" required>
@@ -36,6 +44,7 @@
               </select>
               <p class="error observation-site_id-errors"></p>
             </li>
+            {{/site_data}}
             {{^files}}
             <li class="ui-field-contain">
               <img src="{{rt}}/images/empty.png"

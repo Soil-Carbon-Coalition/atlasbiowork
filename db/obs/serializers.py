@@ -2,6 +2,8 @@ from rest_framework import serializers
 from wq.db.rest.serializers import ModelSerializer
 from wq.db.patterns.serializers import FiledModelSerializer
 from wq.db.rest.compat import parse_json_form
+from .models import Site
+import json
 
 
 class CurrentUserDefault(serializers.CurrentUserDefault):
@@ -37,8 +39,28 @@ class ObservationSerializer(FiledModelSerializer):
         set_fields = list(self.get_fields().keys()) + [
             'csrfmiddlewaretoken', '_method',
         ]
+
+        if data.get('site_data', None):
+            self.create_site(data)
+
         data.setdefault('values', {})
         for key in list(data.keys()):
             if key not in set_fields:
                 data['values'][key] = data.pop(key)
+
         return super().to_internal_value(data)
+
+    def create_site(self, data):
+        # FIXME: Use a proper Serializer class for this?
+        sdata = json.loads(data['site_data'])
+        geom = "POINT(%s %s)" % (
+            sdata.get('longitude', 0),
+            sdata.get('latitude', 0),
+        )
+        # FIXME: handle failure e.g. due to non-unique site id
+        data['site_id'] = Site.objects.create(
+            name=sdata.get('name', None),
+            geometry=geom,
+            accuracy=sdata.get('accuracy', None),
+        ).pk
+        del data['site_data']

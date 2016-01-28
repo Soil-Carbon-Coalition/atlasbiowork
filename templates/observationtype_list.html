@@ -14,7 +14,7 @@
         <ul data-role="listview" data-filter="true" data-inset="true">
           {{#list}}
           <li>
-            <a href="{{rt}}/observations/new?type_id={{id}}">
+            <a href="{{rt}}/observations/new?type_id={{id}}&site_id={{router_info.params.site_id}}">
               <h3>{{label}}</h3>
               <p>{{description}}</p>
             </a>
