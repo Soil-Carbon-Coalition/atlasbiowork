@@ -15,6 +15,12 @@
           {{#list}}
           <li>
             <a href="{{rt}}/observations/new?type_id={{id}}&site_id={{router_info.params.site_id}}">
+              {{#icon}}
+              <img src="{{svc}}/media/{{icon}}">
+              {{/icon}}
+              {{^icon}}
+              <img src="{{rt}}/images/empty.png">
+              {{/icon}}
               <h3>{{label}}</h3>
               <p>{{description}}</p>
             </a>
