@@ -30,3 +30,9 @@
     font-size: 0.8em;
     white-space: normal;
 }
+li.ui-field-contain.numeric .ui-input-text {
+    width: 5em !important;
+    float: none;
+    vertical-align: middle;
+    display: inline-block;
+}

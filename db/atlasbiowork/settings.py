@@ -67,6 +67,11 @@ from wq.db.default_settings import (
     REST_FRAMEWORK,
     SOCIAL_AUTH_PIPELINE,
 )
+
+#inserted 1/17/16 by PD:
+REST_FRAMEWORK['UPLOADED_FILES_USE_URL'] = False
+#end insert
+
 TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, 'templates')]
 
 # wq: Recommended settings unique to wq.db
