@@ -32,7 +32,7 @@ config.store = {
 }
 
 config.map = {
-    'bounds': [[44.7, -93.6], [45.2, -92.8]]
+    'bounds': [[49, -122], [25, -66]]
 };
 
 config.outbox = {};

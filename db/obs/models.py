@@ -62,6 +62,6 @@ class Observation(FiledModel):
     values = JSONField(null=True, blank=True)
 
     def __str__(self):
-        return "%s Observation on %s" % (
+        return "%s Observation posted on %s" % (
             self.type, self.entered.date()
         )

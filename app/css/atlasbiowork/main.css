@@ -1,3 +1,7 @@
+body {
+	font-size: 1.4em;
+}
+
 .error {
     color: red;
     clear: both;
@@ -27,7 +31,7 @@
     clear: both;
     margin-top: 0.5em;
     color: #666;
-    font-size: 0.8em;
+    font-size: 1.2em;
     white-space: normal;
 }
 li.ui-field-contain.numeric .ui-input-text {
