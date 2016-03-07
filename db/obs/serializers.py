@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from wq.db.rest.serializers import ModelSerializer
 from wq.db.patterns.serializers import FiledModelSerializer
-from wq.db.rest.compat import parse_json_form
+from html_json_forms import parse_json_form
 from .models import Site
 import json
 
