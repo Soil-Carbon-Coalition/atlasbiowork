@@ -4,6 +4,8 @@
     <title>atlasbiowork</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="manifest" href="manifest.json">
+	<link rel="icon" type="image/png" href="/favicon-16x16.png" />
+	<link rel="shortcut icon" sizes="96x96" href="favicon-96x96.png">
     {{>head}}
   </head>
   <body>
@@ -26,10 +28,12 @@
           <li data-icon="location">
             <a href="{{rt}}/sites/new">New Site</a>
           </li>
+		  {{#is_authenticated}}{{#user.is_staff}}
           <li data-icon="edit">
             <a href="{{rt}}/observationtypes/new">Create Observation Type</a>
           </li>
-          <li data-icon="lock">
+          {{/user.is_staff}}{{/is_authenticated}}
+		  <li data-icon="lock">
             <a href="{{rt}}/login">Log In</a>
           </li>
         </ul>

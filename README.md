@@ -1,5 +1,5 @@
 # atlasbiowork
-
+Built on wq framework. For entering georeferenced data on landscape function with flexible, ad hoc forms using JSON field. 
 ### Installation
 
 Tested on a Digital Ocean droplet running Ubuntu 15.10.
@@ -54,3 +54,11 @@ Tested on a Digital Ocean droplet running Ubuntu 15.10.
     sudo a2ensite atlasbiowork
     sudo service apache2 restart
     ```
+6. Clean up some details
+    ```bash
+	# Make sure ssl is configured properly with certificates and keys
+	./manage.py collectstatic #(gives css to admin interface etc.)
+	# now you can add users etc. via admin interface
+	cd ..
+	./deploy.sh .01 #performs the wq build process and deploys app
+	```
