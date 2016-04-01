@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.core.files.uploadedfile import UploadedFile
 from django.core.files.storage import default_storage
-from wq.db.rest.serializers import ModelSerializer
+from wq.db.rest.serializers import ModelSerializer, GeometryField
 from html_json_forms import parse_json_form
 from .models import Site
 import json
@@ -25,6 +25,10 @@ class ObservationTypeSerializer(ModelSerializer):
 class ObservationSerializer(ModelSerializer):
     observer_id = serializers.HiddenField(
         default=CurrentUserDefault()
+    )
+    geometry = GeometryField(
+        source="site.geometry",
+        read_only=True,
     )
 
     def to_representation(self, obj):

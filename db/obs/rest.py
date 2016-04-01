@@ -20,7 +20,11 @@ rest.router.register_model(
 
 rest.router.register_model(
     Observation,
-    serializer=ObservationSerializer
+    serializer=ObservationSerializer,
+    map={
+        'list': {'autoLayers': True},
+        'detail': {'autoLayers': True},
+    },
 )
 
 rest.router.add_page('index', {'url': ''})

@@ -1,6 +1,6 @@
 define(['wq/app', 'wq/map', 'wq/photos', 'wq/locate',
         './locateform', './nested', './config',
-        'leaflet.draw'],
+        'leaflet.draw', 'leaflet.markercluster'],
 function(app, map, photos, locate, locateform, nested, config) {
 
 app.use(map);

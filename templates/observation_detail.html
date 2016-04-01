@@ -14,6 +14,8 @@
         </a>
       </div>
       <div role="main" class="ui-content">
+        <div class="ui-grid-a">
+        <div class="ui-block-a">
         <h1>{{label}}</h1>
         <table>
           <tr><th>Type</th><td><a href="{{rt}}/observationtypes/{{type_id}}">{{type_label}}</a></td></tr>
@@ -21,6 +23,10 @@
           <tr><th>Date</th><td>{{date}}</td></tr>
           {{#obs_html}}detail{{/obs_html}}
         </table>
+        </div>
+        <div class="ui-block-b">
+          <div class="map detail-map" id="observation-{{id}}-map"></div>
+        </div>
         {{#files}}
         <img src="/media/1024/{{file}}" alt="{{label}}" style="max-width:100%">
         {{/files}}

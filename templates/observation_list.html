@@ -19,6 +19,8 @@
         </ul>
         {{/unsynced}}
         {{/parent_label}}
+        <div class="ui-grid-a">
+        <div class="ui-block-a">
         <ul data-role="listview" data-filter="true" data-inset="true">
           <li data-role="list-divider">
             {{^parent_label}}{{#unsynced}}Synced{{/unsynced}}{{/parent_label}}
@@ -45,6 +47,12 @@
           </li>
           {{/parent_is_observationtype}}
         </ul>
+        </div>
+        <div class="ui-block-b">
+          <div class="map list-map" id="{{#parent_id}}{{parent_page}}-{{parent_id}}-{{/parent_id}}observation-map">
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   </body>
