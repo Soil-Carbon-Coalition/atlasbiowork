@@ -15,11 +15,24 @@
       </div>
       <div role="main" class="ui-content">
         <h1>{{label}}</h1>
+        {{#icon}}
+        <img src="{{svc}}/media/{{icon}}">
+        {{/icon}}
         <div class="ui-grid-a ui-responsive">
           <div class="ui-block-a">
             <table>
               <tr><th>Name</th><td>{{name}}</td></tr>
               <tr><th>Description</th><td>{{description}}</td></tr>
+              {{#xlsform}}
+              <tr>
+                <th>XLSForm</th>
+                <td>
+                  <a href="{{svc}}/media/{{xlsform}}" target="_blank">
+                    {{xlsform}}
+                  </a>
+                </td>
+              </tr>
+              {{/xlsform}}
             </table>
             <ul data-role="listview" data-inset="true">
               <li><a href="{{rt}}/observationtypes/{{id}}/observations">Observations</a></li>

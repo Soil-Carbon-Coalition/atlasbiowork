@@ -4,7 +4,10 @@
 {{#[[name]]}}
 <tr>
   <th>[[label]]</th>
-  <td>{{[[name]]}}</td>
+  <td>
+    [[^type_is_binary]]{{[[name]]}}[[/type_is_binary]]
+    [[#type_is_binary]]<img src="{{svc}}/media/128/{{[[name]]}}">[[/type_is_binary]]
+  </td>
 </tr>
 {{/[[name]]}}
 [[/wq:nested]]
@@ -18,7 +21,10 @@
       {{#[[name]]}}
       <tr>
         <th>[[label]]</th>
-        <td>{{[[name]]}}</td>
+        <td>
+          [[^type_is_binary]]{{[[name]]}}[[/type_is_binary]]
+          [[#type_is_binary]]<img src="{{svc}}/media/128/{{[[name]]}}">[[/type_is_binary]]
+        </td>
       </tr>
       {{/[[name]]}}
       [[/children]]

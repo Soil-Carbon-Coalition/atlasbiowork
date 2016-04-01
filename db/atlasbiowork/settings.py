@@ -42,7 +42,6 @@ INSTALLED_APPS = [
 
     'wq.db.rest',
     'wq.db.rest.auth',
-    'wq.db.patterns.file',
 
     'obs',
 ]

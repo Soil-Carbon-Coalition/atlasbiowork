@@ -1,5 +1,10 @@
 {{#html5_type}}
+{{#type_is_binary}}
+{{>fields/file}}
+{{/type_is_binary}}
+{{^type_is_binary}}
 {{>fields/input}}
+{{/type_is_binary}}
 {{/html5_type}}
 {{#type_is_select1}}
 {{>fields/select}}

@@ -1,6 +1,7 @@
 from rest_framework import serializers
+from django.core.files.uploadedfile import UploadedFile
+from django.core.files.storage import default_storage
 from wq.db.rest.serializers import ModelSerializer
-from wq.db.patterns.serializers import FiledModelSerializer
 from html_json_forms import parse_json_form
 from .models import Site
 import json
@@ -16,9 +17,12 @@ class ObservationTypeSerializer(ModelSerializer):
     author_id = serializers.HiddenField(
         default=CurrentUserDefault()
     )
+    icon = serializers.ImageField(
+        required=False,
+    )
 
 
-class ObservationSerializer(FiledModelSerializer):
+class ObservationSerializer(ModelSerializer):
     observer_id = serializers.HiddenField(
         default=CurrentUserDefault()
     )
@@ -41,17 +45,28 @@ class ObservationSerializer(FiledModelSerializer):
         """
         Extract 'values' JSON from relational and built-in form fields
         """
+
+        # Save files and return paths
+        for key, value in data.items():
+             if isinstance(value, UploadedFile):
+                 path = 'observations/' + value.name
+                 data[key] = default_storage.save(path, value)
+
+        # Convert nested keys to JSON structure
         data = parse_json_form(data)
-        set_fields = list(self.get_fields().keys()) + [
+        fixed_fields = list(self.get_fields().keys()) + [
             'csrfmiddlewaretoken', '_method',
         ]
 
+        # On-the-fly site creation (New Site + Observation)
         if data.get('site_data', None):
             self.create_site(data)
 
+        # Extract JSON data into 'values' field, leaving relational and
+        # built-in fields in place.
         data.setdefault('values', {})
         for key in list(data.keys()):
-            if key not in set_fields:
+            if key not in fixed_fields:
                 data['values'][key] = data.pop(key)
 
         return super().to_internal_value(data)

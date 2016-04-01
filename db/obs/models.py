@@ -1,7 +1,6 @@
 from django.contrib.gis.db import models
 from django.contrib.postgres.fields import JSONField
 from django.conf import settings
-from wq.db.patterns.models import FiledModel
 import xlsconv
 
 XLSCONV_TEMPLATE = settings.BASE_DIR + '/xlsconv_templates/%s.html'
@@ -54,7 +53,7 @@ class ObservationType(models.Model):
         return self.name
 
 
-class Observation(FiledModel):
+class Observation(models.Model):
     observer = models.ForeignKey('auth.User')
     type = models.ForeignKey(ObservationType)
     entered = models.DateTimeField(auto_now_add=True)

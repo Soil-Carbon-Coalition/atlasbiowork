@@ -18,7 +18,6 @@
             data-wq-json="true"
             {{#outbox_id}}
               data-wq-outbox-id="{{outbox_id}}"
-              data-wq-outbox-preserve="files"
             {{/outbox_id}}>
           {{>csrf}}
           {{#id}}
@@ -45,25 +44,6 @@
               <p class="error observation-site_id-errors"></p>
             </li>
             {{/site_data}}
-            {{^files}}
-            <li class="ui-field-contain">
-              <img src="{{rt}}/images/empty.png"
-                   id="file-preview">
-              <label for="files">Photos</label>
-              <input type="file" multiple name="files" id="files"
-                     data-wq-preview="file-preview">
-              <p class="error observation-files-errors"></p>
-            </li>
-            {{/files}}
-            {{#files}}
-            <li class="ui-field-contain">
-              <img src="{{image_url}}">
-              <label>Photo</label>
-              <input type="text" id="image" disabled
-                  value="{{name}} ({{type}}, {{body.size}} bytes)">
-              <p class="error observation-files-errors"></p>
-            </li>
-            {{/files}}
             {{#obs_html}}edit{{/obs_html}}
             <li>
               <div class="ui-grid-a">

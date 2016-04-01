@@ -26,8 +26,13 @@
             </li>
             <li class="ui-field-contain">
               <label for="icon">Icon</label>
-              <input name="icon" id="icon" type="file" value="{{icon}}">
+              <input name="icon" id="icon" type="file">
               <p class="error observationtype-icon-errors"></p>
+              {{#icon}}
+              <div class="ui-content">
+                <img src="{{svc}}/media/{{icon}}">
+              </div>
+              {{/icon}}
             </li>
             <li class="ui-field-contain">
               <label for="description">Description</label>
@@ -39,6 +44,11 @@
               <label for="xlsform">XLSForm</label>
               <input name="xlsform" id="xlsform" type="file" value="{{xlsform}}">
               <p class="error observationtype-xlsform-errors"></p>
+              {{#xlsform}}
+              <div class="ui-content">
+                <a href="{{svc}}/media/{{xlsform}}" target="_blank">{{xlsform}}</a>
+              </div>
+              {{/xlsform}}
             </li>
             <li>
               <label for="edit_html">HTML Form</label>

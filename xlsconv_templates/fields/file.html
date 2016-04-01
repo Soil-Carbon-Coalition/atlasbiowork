@@ -1,0 +1,14 @@
+{{=[[ ]]=}}
+<li class="ui-field-contain">
+  <label for='{{type_id}}-[[field_id]]'>[[label]]</label>
+  <input id='{{type_id}}-[[field_id]]' type='file' data-xform-type='[[type]]' name='[[field_formname]]'[[#bind.required]]{{^[[name]]}} required{{/[[name]]}}[[/bind.required]][[#type_info.control.mediatype]] accept='[[type_info.control.mediatype]]'[[/type_info.control.mediatype]]>
+  [[#hint]]
+  <p class="hint">[[hint]]</p>
+  [[/hint]]
+  {{#[[name]]}}
+  <div class='ui-content'>
+    <img src="{{svc}}/media/256/{{[[name]]}}">
+    <input type="hidden" name="[[field_formname]]" value="{{[[name]]}}">
+  </div>
+  {{/[[name]]}}
+</li>
