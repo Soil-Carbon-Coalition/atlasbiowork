@@ -21,5 +21,5 @@ wq.db==1.0.0a1
 wq.io==1.0.0a1
 wq.start==1.0.0a1
 xlrd==0.9.4
-xlsconv==0.1.0
+https://github.com/wq/xlsform-converter/archive/master.zip
 https://github.com/wq/django-media-thumbnailer/archive/master.zip

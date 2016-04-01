@@ -1,6 +1,31 @@
 {{=[[ ]]=}}
 [[#fields]]
+[[^wq:nested]]
 {{#[[name]]}}
-<tr><th>[[label]]</th><td>{{[[name]]}}</td></tr>
+<tr>
+  <th>[[label]]</th>
+  <td>{{[[name]]}}</td>
+</tr>
 {{/[[name]]}}
+[[/wq:nested]]
+[[#wq:nested]]
+<tr>
+  <th>[[label]]</th>
+  <td>
+    {{#[[plural_name]]}}
+    <table>
+      [[#children]]
+      {{#[[name]]}}
+      <tr>
+        <th>[[label]]</th>
+        <td>{{[[name]]}}</td>
+      </tr>
+      {{/[[name]]}}
+      [[/children]]
+    </table>
+    <hr>
+    {{/[[plural_name]]}}
+  </td>
+</tr>
+[[/wq:nested]]
 [[/fields]]

@@ -3,8 +3,8 @@
   <fieldset data-role="controlgroup" data-type="horizontal" data-xform-type='[[type]]'>
     <legend>[[label]]</legend>
     [[#choices]]
-    <label for='{{type_id}}-[[field_name]]-[[name]]'>[[label]]</label>
-    <input id='{{type_id}}-[[field_name]]-[[name]]' type='radio' name='[[field_name]]' value="[[name]]"{{#selected}}[[field_name]] [[name]]{{/selected}}>
+    <label for='{{type_id}}-[[field_id]]-[[name]]'>[[label]]</label>
+    <input id='{{type_id}}-[[field_id]]-[[name]]' type='radio' name='[[field_formname]]' value="[[name]]"{{#selected}}[[field_name]] [[name]]{{/selected}}>
     [[/choices]]
   </fieldset>
   [[#hint]]

@@ -1,14 +1,19 @@
-{{#fields}}
-{{#html5_type}}
-{{>fields/input}}
-{{/html5_type}}
-{{#type_is_select1}}
-{{>fields/select}}
-{{/type_is_select1}}
-{{#type_is_note}}
-{{>fields/note}}
-{{/type_is_note}}
-{{#type_is_text}}
-{{>fields/textarea}}
-{{/type_is_text}}
-{{/fields}}
+{{=[[ ]]=}}
+[[#fields]]
+[[>fields/html_field]]
+[[#wq:nested]]
+{{#[[plural_name]]}}
+<li data-role="list-divider" class="section-[[plural_name]]">[[label]]</li>
+[[#children]]
+[[>fields/html_field]]
+[[/children]]
+{{/[[plural_name]]}}
+[[#wq:many]]
+<li>
+  <button type="button" data-atlas-action="addobs" data-atlas-section="[[plural_name]]">
+    Add [[label]]
+  </button>
+</li>
+[[/wq:many]]
+[[/wq:nested]]
+[[/fields]]

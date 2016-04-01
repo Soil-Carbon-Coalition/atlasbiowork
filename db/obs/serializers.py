@@ -28,7 +28,13 @@ class ObservationSerializer(FiledModelSerializer):
         Merge 'values' JSON with relational fields
         """
         data = super().to_representation(obj)
-        data.update(data.pop('values') or {})
+        values = data.pop('values') or {}
+        for key, val in values.items():
+            if isinstance(val, list):
+                for i, v in enumerate(val):
+                    if isinstance(v, dict):
+                        v['@index'] = i
+        data.update(values)
         return data
 
     def to_internal_value(self, data):
