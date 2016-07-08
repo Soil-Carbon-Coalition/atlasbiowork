@@ -71,6 +71,7 @@ from wq.db.default_settings import (
 REST_FRAMEWORK['UPLOADED_FILES_USE_URL'] = False
 #end insert
 
+
 TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, 'templates')]
 
 # wq: Recommended settings unique to wq.db
@@ -81,6 +82,7 @@ from wq.db.default_settings import (
 )
 
 WSGI_APPLICATION = 'atlasbiowork.wsgi.application'
+
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

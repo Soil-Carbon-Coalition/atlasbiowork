@@ -16,13 +16,12 @@
           <ul data-role="listview" data-filter="true" data-inset="true">
             {{#list}}
             <li>
-              <a href="{{rt}}/observationtypes/?site_id={{id}}">
+                <a href="{{rt}}/sites/{{id}}">
                 <h3>{{label}}</h3>
-                <p></p>
-              </a>
-              <a href="{{rt}}/sites/{{id}}" data-icon="info">
-                Site Info
-              </a>
+                </a>
+                <a href="{{rt}}/observationtypes/?site_id={{id}}" data-icon="plus">
+                Add Observation
+                </a>
             </li>
             {{/list}}
             {{^list}}
