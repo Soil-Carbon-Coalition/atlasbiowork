@@ -1,7 +1,7 @@
 from wq.db import rest
 from .models import Site, ObservationType, Observation
 from .serializers import ObservationTypeSerializer, ObservationSerializer
-
+from django.conf import settings
 
 rest.router.register_model(
     Site,
@@ -33,3 +33,7 @@ rest.router.add_page('locate', {
     'map': {},
     'locate': True
 })
+
+rest.router.set_extra_config(
+    mapbox_token=settings.MAPBOX_TOKEN,
+)

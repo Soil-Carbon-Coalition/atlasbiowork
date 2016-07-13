@@ -147,3 +147,6 @@ except ImportError:
 # wq: Determine if we are running off django's testing server
 import sys
 DEBUG_WITH_RUNSERVER = 'manage.py' in sys.argv[0]
+
+ADMINS=[('Peter','managingwholes.com@gmail.com'),]
+
