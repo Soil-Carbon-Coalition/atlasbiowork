@@ -16,6 +16,14 @@
         <a href="{{rt}}/logout" data-role="button" data-icon="delete">
           Log Out
         </a>
+        <ul data-role="listview" data-inset="true" style="clear:both;">
+          <li data-role="list-divider">Connected Accounts</li>
+          {{#user.social_auth.accounts}}
+          <li>
+            {{provider_label}}: {{label}}
+          </li>
+          {{/user.social_auth.accounts}}
+          <li data-role="list-divider">Connect Another Account</li>
         {{/is_authenticated}}
         {{^is_authenticated}}
         <form action="{{svc}}/login" method="post" data-ajax="false"
@@ -47,7 +55,14 @@
             </li>
           </ul>
         </form>
-        {{/is_authenticated}}
+            <ul data-role="listview" data-inset="true">
+
+      {{/is_authenticated}}
+              <li>
+                <a href="/login/google-oauth2" rel="external">Log in with Google</a>
+              </li>
+            </ul>
+
       </div>
     </div>
   </body>

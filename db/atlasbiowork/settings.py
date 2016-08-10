@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.gis',
 
     # Uncomment to enable python-social-auth
-    # 'social.apps.django_app.default',
+    'social.apps.django_app.default',
     'rest_framework',
 
     'wq.db.rest',
@@ -110,6 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # wq: Put social auth backends here (see http://psa.matiasaguirre.net/docs/backends/)
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
+    'social.backends.google.GoogleOAuth2',
 ]
 
 
@@ -149,4 +150,6 @@ import sys
 DEBUG_WITH_RUNSERVER = 'manage.py' in sys.argv[0]
 
 ADMINS=[('Peter','managingwholes.com@gmail.com'),]
+
+LOGIN_REDIRECT_URL = '/login'
 
