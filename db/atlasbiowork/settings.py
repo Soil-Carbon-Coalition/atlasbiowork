@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 # wq: SECRET_KEY and DEBUG are defined in local_settings.py
 
-ALLOWED_HOSTS = ["atlasbiowork.com", "atlasbiowork.wq.io"]
+ALLOWED_HOSTS = ["atlasbiowork.com", "www.atlasbiowork.com","atlasbiowork.wq.io"]
 
 
 # Application definition
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
 
     # Uncomment to enable python-social-auth
     'social.apps.django_app.default',
+    # the following is for the SENTRY error logging system
+    # 'raven.contrib.django.raven_compat',
     'rest_framework',
 
     'wq.db.rest',
@@ -111,6 +113,9 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'social.backends.google.GoogleOAuth2',
+    'social.backends.facebook.FacebookAppOAuth2',
+    'social.backends.facebook.FacebookOAuth2',
+    'social.backends.twitter.TwitterOAuth',
 ]
 
 
@@ -152,4 +157,23 @@ DEBUG_WITH_RUNSERVER = 'manage.py' in sys.argv[0]
 ADMINS=[('Peter','managingwholes.com@gmail.com'),]
 
 LOGIN_REDIRECT_URL = '/login'
+
+LOGGING = {  
+    'version': 1,
+    'disable_existing_loggers': True,
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'include_html': True,
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'propagate': False,
+            'level': 'ERROR',
+        },
+    }
+}
 
