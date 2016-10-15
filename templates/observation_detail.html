@@ -9,9 +9,11 @@
       <div data-role="header">
         {{>home}}
         <h1>{{label}}</h1>
+        {{#is_authenticated}}{{#user.is_staff}}
         <a href="{{rt}}/observations/{{id}}/edit" data-icon="edit" data-transition="flip">
           Edit
         </a>
+        {{/user.is_staff}}{{/is_authenticated}}
       </div>
       <div role="main" class="ui-content">
         <div class="ui-grid-a">
