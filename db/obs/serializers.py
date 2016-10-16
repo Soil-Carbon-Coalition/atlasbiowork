@@ -89,3 +89,4 @@ class ObservationSerializer(ModelSerializer):
             accuracy=sdata.get('accuracy', None),
         ).pk
         del data['site_data']
+

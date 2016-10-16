@@ -7,7 +7,7 @@ XLSCONV_TEMPLATE = settings.BASE_DIR + '/xlsconv_templates/%s.html'
 
 
 class Site(models.Model):
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100, unique=False)
     geometry = models.GeometryField(srid=settings.SRID)
     accuracy = models.FloatField(null=True, blank=True)
 
@@ -55,12 +55,24 @@ class ObservationType(models.Model):
 
 class Observation(models.Model):
     observer = models.ForeignKey('auth.User')
+    parentobs = models.ForeignKey('self', null=True, blank=True, related_name='childobs')
     type = models.ForeignKey(ObservationType)
     entered = models.DateTimeField(auto_now_add=True)
     site = models.ForeignKey(Site)
     values = JSONField(null=True, blank=True)
 
     def __str__(self):
-        return "%s Observation posted on %s" % (
+        return "%s posted %s" % (
             self.type, self.entered.date()
         )
+    def as_tree(self):
+        children = list(self.children.all())
+        branch = bool(children)
+        yield branch, self
+        for child in children:
+            for next in child.as_tree():
+                yield next
+        yield branch, None
+        
+
+        

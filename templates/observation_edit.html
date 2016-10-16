@@ -25,7 +25,6 @@
           {{/id}}
           <ul data-role="listview">
             <input type="hidden" name="type_id" value="{{type_id}}">
-            
             {{#site_id}}
               <li class="ui-field-contain">
                 <label for="site_id_label">Site</label>
@@ -34,6 +33,13 @@
                 <p class="error observation-site_id-errors"></p>
               </li>
             {{/site_id}}
+            {{#parentobs_id}}
+              <li class="ui-field-contain">
+                <label for="parentobs_id_label">Related observation</label>
+                <input id="parentobs_id_label" value="{{#parentobs}}{{label}}{{/parentobs}}" disabled>
+                <input type="hidden" name="parentobs_id" value="{{parentobs_id}}">
+              </li>
+            {{/parentobs_id}}
             {{^site_id}}
             
             {{#site_data}}
