@@ -36,7 +36,7 @@
           </li>
           {{/user.is_staff}}{{/is_authenticated}}
 		  <li data-icon="lock">
-            <a href="{{rt}}/login">Log In</a>
+            <a href="{{rt}}/login">{{#is_authenticated}}Log Out{{/is_authenticated}}{{^is_authenticated}}Log In{{/is_authenticated}}</a>
           </li>
         </ul>
       </div>

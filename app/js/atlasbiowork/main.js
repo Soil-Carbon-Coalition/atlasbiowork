@@ -36,6 +36,7 @@ function ignoreSiteFilter(model) {
     var filterPage = model.filterPage;
     model.filterPage = function(filter) {
         delete filter['site_id'];
+        delete filter['parentobs_id'];
         return filterPage(filter);
     }
 }

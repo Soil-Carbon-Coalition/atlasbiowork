@@ -65,14 +65,7 @@ class Observation(models.Model):
         return "%s posted %s" % (
             self.type, self.entered.date()
         )
-    def as_tree(self):
-        children = list(self.children.all())
-        branch = bool(children)
-        yield branch, self
-        for child in children:
-            for next in child.as_tree():
-                yield next
-        yield branch, None
-        
+    class Meta:
+        ordering = ['-entered']    
 
         
