@@ -8,7 +8,7 @@
     <div data-role="page" class="ui-page">
       <div data-role="header">
         {{>home}}
-        <h1>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} Observation</h1>
+        <h1>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} {{parent_label}} Observation</h1>
       </div>
       <div role="main" class="ui-content">
         {{^type_id}}
@@ -62,6 +62,13 @@
             </li>
             {{/site_data}}
             {{/site_id}}
+            
+            {{#type}}{{#script}}
+            <script>
+            {{{script}}}
+            </script>
+            {{/script}}{{/type}}
+            
             {{#obs_html}}edit{{/obs_html}}
             <li>
               <div class="ui-grid-a">

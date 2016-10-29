@@ -22,14 +22,19 @@
           <tr><th>Site</th><td><a href="{{rt}}/sites/{{site_id}}">{{site_label}}</a></td></tr>
           <tr><th>Observer</th><td>{{observer_label}}</td></tr>
           <tr><th>Parent observation</th><td><a href="{{rt}}/observations/{{parentobs_id}}">{{parentobs_label}}</a></td></tr>
-          <tr><th>Posted</th><td>{{date}}</td></tr>
+          <tr><th>Posted</th><td>{{entered_label}}</td></tr>
           {{#obs_html}}detail{{/obs_html}}
+        
+        
         </table>
         <a href="{{rt}}/observationtypes/?site_id={{site_id}}&parentobs_id={{id}}">Add related or subsequent observation, or a comment</a>
+        {{#childobs}}
+        <p>There are child observations.</p>
+        {{{childobs}}}
+        {{/childobs}}
+        
         <div class="map detail-map" id="observation-{{id}}-map"></div>
-        {{#files}}
-        <img src="/media/1024/{{file}}" alt="{{label}}" style="max-width:100%">
-        {{/files}}
+        
       </div>
     </div>
   </body>

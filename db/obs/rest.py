@@ -1,6 +1,6 @@
 from wq.db import rest
-from .models import Site, ObservationType, Observation
-from .serializers import ObservationTypeSerializer, ObservationSerializer
+from .models import Site, ObservationType, Observation, Map
+from .serializers import ObservationTypeSerializer, ObservationSerializer, MapSerializer
 from django.conf import settings
 
 rest.router.register_model(
@@ -26,6 +26,14 @@ rest.router.register_model(
         'detail': {'autoLayers': True},
     },
 )
+
+
+rest.router.register_model(
+    Map,
+    serializer=MapSerializer
+)
+
+
 
 rest.router.add_page('index', {'url': ''})
 rest.router.add_page('locate', {

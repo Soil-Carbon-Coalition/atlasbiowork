@@ -13,8 +13,7 @@ class Site(models.Model):
 
     def __str__(self):
         return self.name
-
-
+    
 class ObservationType(models.Model):
     name = models.CharField(max_length=255)
     icon = models.ImageField(upload_to='forms')
@@ -22,6 +21,7 @@ class ObservationType(models.Model):
     author = models.ForeignKey('auth.User')
     xlsform = models.FileField(upload_to='forms', null=True, blank=True)
     form_json = JSONField(null=True, blank=True)
+    script = models.TextField(null=True, blank=True)
     edit_html = models.TextField(null=True, blank=True)
     detail_html = models.TextField(null=True, blank=True)
 
@@ -65,7 +65,25 @@ class Observation(models.Model):
         return "%s posted %s" % (
             self.type, self.entered.date()
         )
+    def get_ancestors(self): #this is a recursive function!!!!
+        if self.parentobs is None:
+            return Observation.objects.none()
+        return Observation.objects.filter(pk=self.parentobs.pk) | self.parentobs.get_ancestors()
+
     class Meta:
-        ordering = ['-entered']    
+        ordering = ['-pk']    
 
         
+class Map(models.Model):
+    author = models.ForeignKey('auth.User')
+    entered = models.DateTimeField(auto_now_add=True)
+    name = name = models.CharField(max_length=100, unique=False)
+    values = JSONField(null=True, blank=True)
+
+    def __str__(self):
+        return "Map created on %s" % (
+            self.entered.date()
+        )
+
+    class Meta:
+        ordering = ['-pk']    
