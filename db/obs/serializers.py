@@ -3,7 +3,7 @@ from django.core.files.uploadedfile import UploadedFile
 from django.core.files.storage import default_storage
 from wq.db.rest.serializers import ModelSerializer, GeometryField
 from html_json_forms import parse_json_form
-from .models import Site
+from .models import Site, Observation
 import json
 
 
@@ -20,9 +20,12 @@ class ObservationTypeSerializer(ModelSerializer):
     icon = serializers.ImageField(
         required=False,
     )
-
-
+class ChildObservationSerializer(ModelSerializer):
+    class Meta:
+        model = Observation
+    
 class ObservationSerializer(ModelSerializer):
+    childobs = ChildObservationSerializer(many=True, read_only=True)  #try also adding (Required=False) to args?
     observer_id = serializers.HiddenField(
         default=CurrentUserDefault()
     )

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} Observation</title>
+    <title>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} {{type_label}} Observation</title>
     {{>head}}
   </head>
   <body>
     <div data-role="page" class="ui-page">
       <div data-role="header">
         {{>home}}
-        <h1>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} {{parent_label}} Observation</h1>
+        <h1>{{#id}}Edit{{/id}}{{^id}}Add{{/id}} {{type_label}} Observation</h1>
       </div>
       <div role="main" class="ui-content">
         {{^type_id}}
@@ -83,9 +83,11 @@
                   </button>
                 </div>
               </div>
+              
               <p class="error observation-errors"></p>
             </li>
-          </ul>
+            </ul>
+          
         </form>
       </div>
     </div>

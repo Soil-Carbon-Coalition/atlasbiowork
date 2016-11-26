@@ -30,13 +30,57 @@ body {
 .ui-listview > li p.hint {
     clear: both;
     margin-top: 0.5em;
-    color: #666;
+    color: #000;
     font-size: 1.2em;
     white-space: normal;
 }
 li.ui-field-contain.numeric .ui-input-text {
-    width: 5em !important;
+    width: 3em !important;
     float: none;
     vertical-align: middle;
     display: inline-block;
+}
+
+
+/*these are for stopwatches*/
+.timer {
+    border-radius: 25px;
+    background: #73AD21;
+    border: 5px solid;
+    padding: 10px;
+    margin: 24px 12px 38px 6px;
+    width: 250px;
+    height: 130px;
+    font-size: 128px;
+    font-weight: bold;
+    font-family: sans-serif;
+    cursor: pointer;
+    display: block;
+}
+.timer.started {
+    background: #f00;
+}
+.toggletext {
+    font-size: 40px;
+    display: block;
+    position: relative;
+    left: 80px;
+    bottom: 150px;
+}
+.timertext {
+    font-size: 40px;
+    position: relative;
+    left: 100px;
+    bottom: 130px;
+    display: block;
+}
+.timings {
+    font-size: 18px;
+    display:  inline;
+    position: relative;
+    bottom: 40px;
+}
+.boldHR {
+    height: 15px;
+    background-color: darkblue;
 }
