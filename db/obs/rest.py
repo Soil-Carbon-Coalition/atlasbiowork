@@ -5,32 +5,44 @@ from django.conf import settings
 
 rest.router.register_model(
     Site,
-    map={
-        'list': {'autoLayers': True},
-        'edit': {'autoLayers': True},
-        'detail': {'autoLayers': True},
-    },
+    fields="__all__",
+    map=[{
+        'mode': 'list',
+	'autoLayers': True,
+    }, {
+        'mode': 'detail',
+	'autoLayers': True,
+    }, {
+        'mode': 'edit',
+	'autoLayers': True,
+    }],
     partial=True,
 )
 
 rest.router.register_model(
     ObservationType,
-    serializer=ObservationTypeSerializer
+    serializer=ObservationTypeSerializer,
+    fields="__all__",
 )
 
 rest.router.register_model(
     Observation,
     serializer=ObservationSerializer,
-    map={
-        'list': {'autoLayers': True},
-        'detail': {'autoLayers': True},
-    },
+    fields="__all__",
+    map=[{
+        'mode': 'list',
+	'autoLayers': True,
+    }, {
+        'mode': 'detail',
+	'autoLayers': True,
+    }],
 )
 
 
 rest.router.register_model(
     Map,
-    serializer=MapSerializer
+    serializer=MapSerializer,
+    fields="__all__",
 )
 
 

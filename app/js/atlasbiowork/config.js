@@ -62,12 +62,16 @@ config.transitions = {
     'save': "flip"
 };
 
-config.pages.site.map.list.onshow = function(map) {
-    map.locate({
-        'setView': true,
-        'maxZoom': 16,
-    });
-}
+config.pages.site.map.forEach(function(mconf) {
+    if (mconf.mode == 'list') {
+        mconf.onshow = function(map) {
+	    map.locate({
+		'setView': true,
+		'maxZoom': 16,
+	    });
+        };
+    }
+});
 
 return config;
 

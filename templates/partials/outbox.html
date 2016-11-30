@@ -1,14 +1,15 @@
 {{#unsyncedItems}}
 <li data-icon="{{#error}}alert{{/error}}{{^error}}minus{{/error}}">
-  <a href="{{rt}}/outbox/{{id}}/edit">
+  <a href="{{rt}}/outbox/{{id}}">
     {{#data}}
-    {{#files}}
-    <img src="{{image_url}}" alt="Observation on {{date}}">
-    {{/files}}
-    {{^files}}
+    {{#default_photo}}
+    <img src="{{image_url}}" alt="{{label}}">
+    {{/default_photo}}
+    {{^default_photo}}
     <img src="{{rt}}/images/empty.png" alt="No Image">
-    {{/files}}
-    Observation on {{date}}
+    {{/default_photo}}
+    {{label}}
+    {{^label}}Unsynced Item #{{id}}{{/label}}
     {{/data}}
   </a>
   

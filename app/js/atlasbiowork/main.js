@@ -1,12 +1,13 @@
 define(['wq/app', 'wq/map', 'wq/photos', 'wq/locate',
-        './locateform', './nested', './config',
+        './locateform', './nested', './outboxphotos', './config',
         'leaflet.draw', 'leaflet.markercluster'],
-function(app, map, photos, locate, locateform, nested, config) {
+function(app, map, photos, locate, locateform, nested, outboxphotos, config) {
 
 app.use(map);
 app.use(photos);
 app.use(locate);
 app.use(locateform);
+app.use(outboxphotos);
 app.use(nested);
 
 config.presync = presync;
