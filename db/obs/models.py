@@ -62,6 +62,8 @@ class Observation(models.Model):
     values = JSONField(null=True, blank=True)
 
     def __str__(self):
+        if self.type_id is None:
+            return "New Observation"
         return "%s posted %s" % (
             self.type, self.entered.date()
         )
