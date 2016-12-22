@@ -19,15 +19,20 @@
           <li data-icon="navigation">
             <a href="{{rt}}/locate">New Point Site + Observation</a>
           </li>
+          
+          <li data-icon="bullets">
+            <a href="{{rt}}/observations">View Observations</a>
+          </li>
+          <li data-icon="bullets">
+            <a href="{{rt}}/observationtypes">Observation Types</a>
+          </li>
+          
           <li data-icon="location">
             <a href="{{rt}}/sites">Sites</a>
           </li>
-          <li data-icon="bullets">
-            <a href="{{rt}}/observations">View Observations + Outbox</a>
-          </li>
                  
           <li data-icon="location">
-            <a href="{{rt}}/sites/new">New Site (you must be connected)</a>
+            <a href="{{rt}}/sites/new">New Site (must be online)</a>
           </li>
                 {{#is_authenticated}}{{#user.is_staff}}
           <li data-icon="edit">
