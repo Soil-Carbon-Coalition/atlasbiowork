@@ -13,6 +13,7 @@ Tested on a Digital Ocean droplet running Ubuntu 16.04 LTS.
     sudo apt-get install apache2 libapache2-mod-wsgi-py3 postgresql-9.5-postgis-2.2 python3-venv
     sudo apt-get install nodejs-legacy
     sudo apt-get install git vim libxslt-dev libz-dev
+    sudo apt-get install build-essential libpq-dev python3-dev
     ```
 
 3. Install code
