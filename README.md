@@ -1,5 +1,6 @@
 # atlasbiowork
 Built on wq framework. For entering georeferenced data on landscape function with flexible, ad hoc forms using JSON field. 
+For information on context and uses, see http://soilcarboncoalition.org/atlasbiowork
 ### Installation
 
 Tested on a Digital Ocean droplet running Ubuntu 16.04 LTS.
@@ -51,7 +52,7 @@ Tested on a Digital Ocean droplet running Ubuntu 16.04 LTS.
 
 5. Configure Apache
     ```bash
-    sudo a2enmod expires ssl
+    sudo a2enmod expires ssl rewrite
     # (edit /var/www/atlasbiowork/conf/atlasbiowork.conf to ensure proper path to SSL certificate file)
     sudo ln -s /var/www/atlasbiowork/conf/atlasbiowork.conf /etc/apache2/sites-available/
     sudo a2ensite atlasbiowork
