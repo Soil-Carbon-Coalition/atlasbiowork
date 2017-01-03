@@ -2,16 +2,16 @@
 Built on wq framework. For entering georeferenced data on landscape function with flexible, ad hoc forms using JSON field. 
 ### Installation
 
-Tested on a Digital Ocean droplet running Ubuntu 15.10.
+Tested on a Digital Ocean droplet running Ubuntu 16.04 LTS.
 
 1. Fork this repository (optional)
 
 2. Install System Dependencies:
     ```bash
     sudo apt-get update
-    sudo apt-get install apache2 libapache2-mod-wsgi-py3 postgresql-9.4-postgis-2.1 python3-pip python3-psycopg2
+    sudo apt-get install apache2 libapache2-mod-wsgi-py3 postgresql-9.5-postgis-2.2 python3-venv
     sudo apt-get install nodejs-legacy
-    sudo apt-get install git vim python3-pil libxslt-dev libz-dev
+    sudo apt-get install git vim libxslt-dev libz-dev
     ```
 
 3. Install code
@@ -21,12 +21,15 @@ Tested on a Digital Ocean droplet running Ubuntu 15.10.
     sudo mkdir atlasbiowork
     sudo chown `whoami` atlasbiowork
     cd atlasbiowork
+
     # (Replace HTTPS URL with your fork and/or a SSH URL)
     git clone https://github.com/Soil-Carbon-Coalition/atlasbiowork .
     sudo chown www-data media
     
-    # Install python dependencies
-    sudo pip3 install -r requirements.txt
+    # Create python venv and install dependencies
+    python3 -m venv venv
+    . venv/bin/activate
+    pip install -r requirements.txt
 
     # Configure local settings
     cd db/atlasbiowork
@@ -36,7 +39,7 @@ Tested on a Digital Ocean droplet running Ubuntu 15.10.
 
 4. Initialize Database
     ```bash
-    # (edit /etc/postgresql/9.4/main/pg_hba.conf and/or pg_ident.conf to set permissions)
+    # (edit /etc/postgresql/9.5/main/pg_hba.conf and/or pg_ident.conf to set permissions)
     sudo service postgresql restart
     createuser -Upostgres atlasbiowork
     createdb -Upostgres -Oatlasbiowork atlasbiowork
@@ -54,11 +57,12 @@ Tested on a Digital Ocean droplet running Ubuntu 15.10.
     sudo a2ensite atlasbiowork
     sudo service apache2 restart
     ```
+
 6. Clean up some details
     ```bash
-	# Make sure ssl is configured properly with certificates and keys
-	./manage.py collectstatic #(gives css to admin interface etc.)
-	# now you can add users etc. via admin interface
-	cd ..
-	./deploy.sh .01 #performs the wq build process and deploys app
-	```
+    # Make sure ssl is configured properly with certificates and keys
+    ./manage.py collectstatic #(gives css to admin interface etc.)
+    # now you can add users etc. via admin interface
+    cd ..
+    ./deploy.sh .01 #performs the wq build process and deploys app
+    ```

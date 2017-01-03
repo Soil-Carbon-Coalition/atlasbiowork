@@ -18,6 +18,7 @@
             data-wq-json="true"
             {{#outbox_id}}
               data-wq-outbox-id="{{outbox_id}}"
+              data-wq-outbox-preserve="{{file_fields}}"
             {{/outbox_id}}>
           {{>csrf}}
           {{#id}}
@@ -36,7 +37,7 @@
             {{#parentobs_id}}
               <li class="ui-field-contain">
                 <label for="parentobs_id_label">Related observation</label>
-                <input id="parentobs_id_label" value="{{#parentobs}}{{label}}{{/parentobs}}" disabled>
+                <input id="parentobs_id_label" value="{{#parentobs}}{{#outbox}}* {{/outbox}}{{label}}{{/parentobs}}" disabled>
                 <input type="hidden" name="parentobs_id" value="{{parentobs_id}}">
               </li>
             {{/parentobs_id}}

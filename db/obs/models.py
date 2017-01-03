@@ -11,6 +11,8 @@ class Site(models.Model):
     geometry = models.GeometryField(srid=settings.SRID)
     accuracy = models.FloatField(null=True, blank=True)
 
+    wq_label_template = "{{name}}"
+
     def __str__(self):
         return self.name
     
@@ -60,6 +62,8 @@ class Observation(models.Model):
     entered = models.DateTimeField(auto_now_add=True)
     site = models.ForeignKey(Site)
     values = JSONField(null=True, blank=True)
+
+    wq_label_template = "Observation{{#date}} on {{{date}}}{{/date}}"
 
     def __str__(self):
         if self.type_id is None:

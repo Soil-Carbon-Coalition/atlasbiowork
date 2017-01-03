@@ -23,6 +23,7 @@ class ObservationTypeSerializer(ModelSerializer):
 class ChildObservationSerializer(ModelSerializer):
     class Meta:
         model = Observation
+        fields = "__all__"
     
 class ObservationSerializer(ModelSerializer):
     childobs = ChildObservationSerializer(many=True, read_only=True)  #try also adding (Required=False) to args?

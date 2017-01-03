@@ -7,8 +7,13 @@
   [[/hint]]
   {{#[[name]]}}
   <div class='ui-content'>
+    {{#outbox_id}}
+    <img src="{{#[[name]]}}{{image_url}}{{/[[name]]}}" style='height:256px;'>
+    {{/outbox_id}}
+    {{^outbox_id}}
     <img src="{{svc}}/media/256/{{[[name]]}}">
     <input type="hidden" name="[[field_formname]]" value="{{[[name]]}}">
+    {{/outbox_id}}
   </div>
   {{/[[name]]}}
 </li>

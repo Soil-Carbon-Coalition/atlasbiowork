@@ -6,7 +6,14 @@
   <th>[[label]]</th>
   <td>
     [[^type_is_binary]]{{[[name]]}}[[/type_is_binary]]
-    [[#type_is_binary]]<a href="{{rt}}/media/{{[[name]]}}" target = "_blank"><img src="{{svc}}/media/256/{{[[name]]}}"></a>[[/type_is_binary]]
+    [[#type_is_binary]]
+    {{#outbox_id}}
+    <img src="{{#[[name]]}}{{image_url}}{{/[[name]]}}" style='height:256px;'>
+    {{/outbox_id}}
+    {{^outbox_id}}
+    <a href="{{rt}}/media/{{[[name]]}}" target = "_blank"><img src="{{svc}}/media/256/{{[[name]]}}"></a>
+    {{/outbox_id}}
+    [[/type_is_binary]]
   </td>
 </tr>
 {{/[[name]]}}
@@ -23,7 +30,14 @@
         <th>[[label]]</th>
         <td>
           [[^type_is_binary]]{{[[name]]}}[[/type_is_binary]]
-          [[#type_is_binary]]<a href="{{rt}}/media/{{[[name]]}}" target = "_blank"><img src="{{svc}}/media/256/{{[[name]]}}"></a[[/type_is_binary]]
+          [[#type_is_binary]]
+          {{#outbox_id}}
+          <img src="{{#[[name]]}}{{image_url}}{{/[[name]]}}" style='height:256px;'>
+          {{/outbox_id}}
+          {{^outbox_id}}
+          <a href="{{rt}}/media/{{[[name]]}}" target = "_blank"><img src="{{svc}}/media/256/{{[[name]]}}"></a>
+          {{/outbox_id}}
+          [[/type_is_binary]]
         </td>
       </tr>
       {{/[[name]]}}
