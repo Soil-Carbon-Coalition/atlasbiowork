@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
-    'corsheaders',
+    #'corsheaders',
 
     # Uncomment to enable python-social-auth
     'social.apps.django_app.default',
@@ -52,7 +52,7 @@ INSTALLED_APPS = [
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+   # 'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -62,7 +62,7 @@ MIDDLEWARE_CLASSES = [
     
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'atlasbiowork.urls'
 

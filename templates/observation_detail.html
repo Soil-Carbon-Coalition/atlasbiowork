@@ -37,12 +37,17 @@
         
         </table>
         <a href="{{rt}}/observationtypes/?site_id={{site_id}}&parentobs_id={{#id}}{{id}}{{/id}}{{^id}}outbox-{{outbox_id}}{{/id}}">Add related or subsequent observation, or a comment</a>
-        {{#childobs}}
         <p>Child or subsequent observations:</p>
+
+	{{#childobs}}
         <ul><li>
-        <a href="{{rt}}/observations/{{id}}">{{label}}</a>
+	<a href="{{rt}}/observations/{{id}}">{{label}}</a>
         </li></ul>
         {{/childobs}}
+
+        {{^childobs}}
+		<p>No child observations found</p>
+	{{/childobs}}
         
         {{^outbox_id}}
         <div class="map detail-map" id="observation-{{id}}-map"></div>

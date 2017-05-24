@@ -50,7 +50,7 @@ rest.router.register_model(
 rest.router.add_page('index', {'url': ''})
 rest.router.add_page('locate', {
     'url': 'locate',
-    'map': {},
+    'map': {'layers': []},
     'locate': True
 })
 
