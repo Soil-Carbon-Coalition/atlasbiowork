@@ -36,19 +36,18 @@
         
         
         </table>
-        <a href="{{rt}}/observationtypes/?site_id={{site_id}}&parentobs_id={{#id}}{{id}}{{/id}}{{^id}}outbox-{{outbox_id}}{{/id}}">Add related or subsequent observation, or a comment</a>
-        <p>Child or subsequent observations:</p>
-
-	{{#childobs}}
-        <ul><li>
+        <a href="{{rt}}/observationtypes/?site_id={{site_id}}&parentobs_id={{#id}}{{id}}{{/id}}{{^id}}outbox-{{outbox_id}}{{/id}}" data-icon="plus">Attach child observation, subsequent observation, or comment</a>
+        <h3>Child observations:</h3>
+        <ul data-role="listview" data-filter="true" data-inset="true">
+	    {{#childobs}}
+        <li>
 	<a href="{{rt}}/observations/{{id}}">{{label}}</a>
-        </li></ul>
+        </li>
         {{/childobs}}
-
         {{^childobs}}
-		<p>No child observations found</p>
-	{{/childobs}}
-        
+		<li>No child observations found</li>
+        {{/childobs}}
+        </ul>
         {{^outbox_id}}
         <div class="map detail-map" id="observation-{{id}}-map"></div>
         {{/outbox_id}}

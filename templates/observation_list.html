@@ -14,7 +14,7 @@
         {{^parent_label}}
         {{#unsynced}}
         <ul data-role="listview" data-inset="true">
-          <li data-role="list-divider">Outbox</li>
+          <li data-role="list-divider">Your outbox</li>
           {{>outbox}}
         </ul>
         {{/unsynced}}
@@ -24,7 +24,7 @@
         <ul data-role="listview" data-filter="true" data-inset="true">
           <li data-role="list-divider">
             {{^parent_label}}{{#unsynced}}Synced{{/unsynced}}{{/parent_label}}
-            Observations
+            Observations posted
           </li>
           {{#list}}
           <li>
@@ -53,6 +53,7 @@
           </div>
         </div>
         </div>
+           {{>paginator}}
       </div>
     </div>
   </body>

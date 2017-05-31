@@ -6,6 +6,7 @@ from django.conf import settings
 rest.router.register_model(
     Site,
     fields="__all__",
+    cache="none",
     map=[{
         'mode': 'list',
 	'autoLayers': True,
@@ -16,7 +17,7 @@ rest.router.register_model(
         'mode': 'edit',
 	'autoLayers': True,
     }],
-    partial=True,
+    #partial=True,
 )
 
 rest.router.register_model(
@@ -25,10 +26,20 @@ rest.router.register_model(
     fields="__all__",
 )
 
+#this could enable filtering of own observations
+def user_filter(qs, request):
+    if request.user.is_authenticated():
+        return qs.filter(user=request.user)
+    else:
+        return qs.none()
+
+
 rest.router.register_model(
     Observation,
     serializer=ObservationSerializer,
     fields="__all__",
+    cache= "none",
+    
     map=[{
         'mode': 'list',
 	'autoLayers': True,
