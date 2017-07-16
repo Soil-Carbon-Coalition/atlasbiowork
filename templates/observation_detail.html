@@ -28,22 +28,23 @@
           <tr><th>Type</th><td><a href="{{rt}}/observationtypes/{{type_id}}">{{type_label}}</a></td></tr>
           <tr><th>Site</th><td><a href="{{rt}}/sites/{{site_id}}">{{site_label}}</a></td></tr>
           <tr><th>Observer</th><td>{{observer_label}}</td></tr>
-          {{#parentobs}}
-          <tr><th>Parent/previous observation</th><td><a href="{{rt}}{{#outbox}}/outbox/{{outbox_id}}{{/outbox}}{{^outbox}}/observations/{{id}}{{/outbox}}">{{label}}</a></td></tr>
-          {{/parentobs}}
           <tr><th>Posted</th><td>{{entered_label}}</td></tr>
           {{#obs_html}}detail{{/obs_html}}
-        
-        
+               
         </table>
-        <a href="{{rt}}/observationtypes/?site_id={{site_id}}&parentobs_id={{#id}}{{id}}{{/id}}{{^id}}outbox-{{outbox_id}}{{/id}}" data-icon="plus">Attach child observation, subsequent observation, or comment</a><br>
-        <a href="{{rt}}/observationtypes/?site_id={{site_id}}&parentobs_id={{#parentobs_id}}{{parentobs_id}}{{/parentobs_id}}{{^parentobs_id}}outbox-{{outbox_id}}{{/parentobs_id}}" data-icon="plus">Attach SIBLING observation</a>
-
+        {{#parentobs}}
+          <p>Parent or prior observation:<br>
+          &nbsp;&nbsp;<a href="{{rt}}{{#outbox}}/outbox/{{outbox_id}}{{/outbox}}{{^outbox}}/observations/{{id}}{{/outbox}}">{{label}}</a></p>
+        <p><a href="{{rt}}/observationtypes/?site_id={{site_id}}&parentobs_id={{#parentobs_id}}{{parentobs_id}}{{/parentobs_id}}{{^parentobs_id}}outbox-{{outbox_id}}{{/parentobs_id}}" data-icon="plus">Attach SIBLING observation</a></p>
+        {{/parentobs}}
+        
+        <p><a href="{{rt}}/observationtypes/?site_id={{site_id}}&parentobs_id={{#id}}{{id}}{{/id}}{{^id}}outbox-{{outbox_id}}{{/id}}" data-icon="plus">Attach child observation, subsequent observation, or comment</a></p>
+        
         <h3>Child observations:</h3>
-        <ul data-role="listview" data-filter="true" data-inset="true">
+        <ul data-role="listview" data-filter="false" data-inset="true">
 	    {{#childobs}}
         <li>
-	<a href="{{rt}}/observations/{{id}}">{{label}}</a>
+	        <a href="{{rt}}/observations/{{id}}">{{label}}</a>
         </li>
         {{/childobs}}
         {{^childobs}}
