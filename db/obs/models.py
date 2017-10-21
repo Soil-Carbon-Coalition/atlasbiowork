@@ -70,8 +70,8 @@ class Observation(models.Model):
     def __str__(self):
         if self.type_id is None:
             return "New Observation"
-        return "%s posted %s" % (
-            self.type, self.entered.date()
+        return "%s: %s" % (
+            self.id, self.type
         )
     def get_ancestors(self): #this is a recursive function!!!!
         if self.parentobs is None:
@@ -79,7 +79,7 @@ class Observation(models.Model):
         return Observation.objects.filter(pk=self.parentobs.pk) | self.parentobs.get_ancestors()
 
     class Meta:
-        ordering = ['-pk']    
+        ordering = ['-entered']    
 
         
 class Map(models.Model):

@@ -35,7 +35,7 @@
         {{#parentobs}}
           <p>Parent or prior observation:<br>
           &nbsp;&nbsp;<a href="{{rt}}{{#outbox}}/outbox/{{outbox_id}}{{/outbox}}{{^outbox}}/observations/{{id}}{{/outbox}}">{{label}}</a></p>
-        <p><a href="{{rt}}/observationtypes/?site_id={{site_id}}&parentobs_id={{#parentobs_id}}{{parentobs_id}}{{/parentobs_id}}{{^parentobs_id}}outbox-{{outbox_id}}{{/parentobs_id}}" data-icon="plus">Attach SIBLING observation</a></p>
+        <!--p><a href="{{rt}}/observationtypes/?site_id={{site_id}}&parentobs_id={{#parentobs_id}}{{parentobs_id}}{{/parentobs_id}}{{^parentobs_id}}outbox-{{outbox_id}}{{/parentobs_id}}" data-icon="plus">Attach SIBLING observation</a></p>-->
         {{/parentobs}}
         
         <p><a href="{{rt}}/observationtypes/?site_id={{site_id}}&parentobs_id={{#id}}{{id}}{{/id}}{{^id}}outbox-{{outbox_id}}{{/id}}" data-icon="plus">Attach child observation, subsequent observation, or comment</a></p>
