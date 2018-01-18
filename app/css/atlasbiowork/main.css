@@ -34,11 +34,22 @@ body {
     font-size: 1.2em;
     white-space: normal;
 }
+
+.ui-field-contain > label {
+    width: 25% !important;
+}
+
 li.ui-field-contain.numeric .ui-input-text {
     width: 3em !important;
     float: none;
     vertical-align: middle;
     display: inline-block;
+}
+input[required], textarea[required] {
+  background-image: url("https://atlasbiowork.com/media/forms/asterisk.svg");
+  background-position: top right;
+  background-size: 1.4em 2em;
+  background-repeat: no-repeat;
 }
 
 

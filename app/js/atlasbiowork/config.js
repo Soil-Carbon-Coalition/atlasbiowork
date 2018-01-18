@@ -73,6 +73,9 @@ config.pages.site.map.forEach(function(mconf) {
     }
 });
 
+
+config.debug = true; //added May 26, 2017
+
 return config;
 
 });

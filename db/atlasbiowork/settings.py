@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 # wq: SECRET_KEY and DEBUG are defined in local_settings.py
 
-ALLOWED_HOSTS = ["atlasbiowork.com", "www.atlasbiowork.com","atlasbiowork.wq.io"]
+ALLOWED_HOSTS = ["atlasbiowork.com", "www.atlasbiowork.com"]
 
 
 # Application definition
@@ -36,13 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',
     #'corsheaders',
-
+    'django_extensions', #this will enable jupyter etc.
     # Uncomment to enable python-social-auth
     'social.apps.django_app.default',
-    # the following is for the SENTRY error logging system
-    # 'raven.contrib.django.raven_compat',
     'rest_framework',
-
     'wq.db.rest',
     'wq.db.rest.auth',
 

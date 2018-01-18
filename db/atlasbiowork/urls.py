@@ -11,7 +11,7 @@ rest.autodiscover()
 from django.conf import settings
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admyn/', include(admin.site.urls)),
     url(r'^generate/', include('dmt.urls')), #thumbnailer
     # Uncomment to enable python-social-auth URLs
     url(r'', include('social.apps.django_app.urls', namespace='social')),
