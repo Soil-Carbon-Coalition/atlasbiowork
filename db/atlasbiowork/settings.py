@@ -160,22 +160,18 @@ ADMINS=[('Peter','managingwholes.com@gmail.com'),]
 
 LOGIN_REDIRECT_URL = '/login'
 
-LOGGING = {  
+LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
+    'disable_existing_loggers': False,
     'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'class': 'django.utils.log.AdminEmailHandler',
-            'include_html': True,
+        'console': {
+            'class': 'logging.StreamHandler',
         },
     },
     'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'propagate': False,
-            'level': 'ERROR',
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
         },
-    }
+    },
 }
-
