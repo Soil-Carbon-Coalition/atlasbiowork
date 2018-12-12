@@ -6,7 +6,7 @@ from django.conf import settings
 rest.router.register_model(
     Site,
     fields="__all__",
-    cache="none",
+    cache="all",
     map=[{
         'mode': 'list',
 	'autoLayers': True,
