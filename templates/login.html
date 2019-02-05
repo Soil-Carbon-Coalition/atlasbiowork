@@ -58,14 +58,16 @@
             <ul data-role="listview" data-inset="true">
 
       {{/is_authenticated}}
-              <li>
-                <a href="/login/google-oauth2" rel="external">Log in with Google</a>
+     <!--         <li>
+         <a href="/login/google-oauth2" rel="external">Log in with Google</a> 
+             <a href="{{ url "social:begin" "google-oauth2" }}">Log in with Google</a>
               </li>
-<!--              <li>
+          <li>
                 <a href="/login/facebook" rel="external">Log in with Facebook</a>
-              </li> -->
+              </li>
               <li>
                  <a href="/login/twitter" rel="external">Log in with Twitter</a>
+      -->
 
             </ul>
 

@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 # wq: SECRET_KEY and DEBUG are defined in local_settings.py
 
-ALLOWED_HOSTS = ["atlasbiowork.com", "www.atlasbiowork.com"]
+ALLOWED_HOSTS = ["atlasbiowork.com", "www.atlasbiowork.com","162.243.163.91"]
 
 
 # Application definition
@@ -56,7 +56,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+    'social_django.middleware.SocialAuthExceptionMiddleware',    
 ]
 
 # CORS_ORIGIN_ALLOW_ALL = True
@@ -114,10 +114,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # wq: Put social auth backends here (see http://psa.matiasaguirre.net/docs/backends/)
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'social.backends.google.GoogleOAuth2',
-    'social.backends.facebook.FacebookAppOAuth2',
-    'social.backends.facebook.FacebookOAuth2',
-    'social.backends.twitter.TwitterOAuth',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
 ]
 
 
