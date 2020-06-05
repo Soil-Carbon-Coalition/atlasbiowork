@@ -1,7 +1,7 @@
 click==5.1
 compass-stylesheets==0.12.6
 defusedxml==0.4.1
-Django==1.11.15
+Django==1.11.29
 django-mustache==1.1.0
 djangorestframework==3.9.0
 https://github.com/sheppard/django-media-thumbnailer/archive/master.zip
