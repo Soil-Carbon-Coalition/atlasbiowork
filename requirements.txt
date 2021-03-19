@@ -3,7 +3,7 @@ compass-stylesheets==0.12.6
 defusedxml==0.4.1
 Django==1.11.15
 django-mustache==1.1.0
-djangorestframework==3.9.0
+djangorestframework==3.11.2
 https://github.com/sheppard/django-media-thumbnailer/archive/master.zip
 FormEncode==2.0.0a1
 html-json-forms==1.0.0
